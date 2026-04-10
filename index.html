@@ -780,17 +780,15 @@ function canGenerateScript() {
     }
 
     const currentTime = new Date().getTime();
-    const oneHour = 60 * 60 * 1000;
+    const oneHour = 60 * 1000;
     const timeElapsed = currentTime - lastGeneratedTime;
 
     return timeElapsed >= oneHour;
 }
 
-
 function recordScriptGeneration() {
     localStorage.setItem('lastScriptGenerationTime', new Date().getTime());
 }
-
 
 function getTimeRemaining() {
     const lastGeneratedTime = localStorage.getItem('lastScriptGenerationTime');
@@ -799,7 +797,7 @@ function getTimeRemaining() {
     }
 
     const currentTime = new Date().getTime();
-    const oneHour = 60 * 60 * 1000;
+    const oneHour = 60 * 1000;
     const timeElapsed = currentTime - lastGeneratedTime;
     const timeRemaining = oneHour - timeElapsed;
 
@@ -815,6 +813,7 @@ function formatTimeRemaining(minutes) {
         return `You must wait ${minutes} minutes before generating another script.`;
     }
 }
+
 function updateTimeRemainingDisplay() {
     const timeRemaining = getTimeRemaining();
     const hintElement = document.getElementById('timeRemainingHint');
@@ -823,9 +822,7 @@ function updateTimeRemainingDisplay() {
     }
 }
 
-
 updateTimeRemainingDisplay();
-
 
 setInterval(updateTimeRemainingDisplay, 60000);
 function generateAlias(length = 8) {
