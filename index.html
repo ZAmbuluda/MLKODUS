@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vinhub</title>
+<title>MLKODUS</title>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --bg: #0f0a1e;
-    --surface: #1a123a;
-    --panel: #2d1b69;
-    --border: #4c1d95;
-    --accent: #a855f7;
-    --purple: #9333ea;
+    --bg: #0a1128;
+    --surface: #0d1b3e;
+    --panel: #1a2b5c;
+    --border: #2a4b8c;
+    --accent: #4d79ff;
+    --purple: #3a5fff;
     --discord: #5865f2;
     --green: #10b981;
     --danger: #f43f5e;
     --text: #e2e8f0;
     --muted: #94a3b8;
-    --panel-shadow: 0 4px 6px -1px rgba(168, 85, 247, 0.15);
+    --panel-shadow: 0 4px 6px -1px rgba(77, 121, 255, 0.15);
   }
   body {
     background: var(--bg);
@@ -33,8 +33,8 @@
     position: fixed;
     inset: 0;
     background-image:
-      linear-gradient(rgba(168, 85, 247, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(168, 85, 247, 0.03) 1px, transparent 1px);
+      linear-gradient(rgba(77, 121, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(77, 121, 255, 0.03) 1px, transparent 1px);
     background-size: 44px 44px;
     pointer-events: none;
     z-index: 0;
@@ -117,7 +117,7 @@
     gap: 14px;
   }
   .suggestion-item:hover {
-    background: rgba(168, 85, 247, 0.12);
+    background: rgba(77, 121, 255, 0.12);
   }
 
   .suggestion-avatar {
@@ -150,7 +150,7 @@
     font-weight: 500;
   }
   .suggestion-id {
-    color: rgba(168, 85, 247, 0.5);
+    color: rgba(77, 121, 255, 0.5);
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.78rem;
   }
@@ -267,13 +267,13 @@
   }
   .search-input:focus {
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.25);
+    box-shadow: 0 0 0 3px rgba(77, 121, 255, 0.25);
   }
   .search-input::placeholder { color: #64748b; }
   .btn-sm {
     padding: .5rem .9rem;
-    background: rgba(168, 85, 247, 0.1);
-    border: 1px solid rgba(168, 85, 247, 0.3);
+    background: rgba(77, 121, 255, 0.1);
+    border: 1px solid rgba(77, 121, 255, 0.3);
     border-radius: 7px;
     color: var(--accent);
     font-family: 'Share Tech Mono', monospace;
@@ -285,7 +285,7 @@
     transition: background .2s, color .2s;
   }
   .btn-sm:hover {
-    background: rgba(168, 85, 247, 0.2);
+    background: rgba(77, 121, 255, 0.2);
     color: var(--text);
   }
   .btn-sm.red {
@@ -319,8 +319,8 @@
     user-select: none;
   }
   .a-item:last-child { border-bottom: none; }
-  .a-item:hover { background: rgba(168, 85, 247, 0.08); }
-  .a-item.on { background: rgba(168, 85, 247, 0.15); }
+  .a-item:hover { background: rgba(77, 121, 255, 0.08); }
+  .a-item.on { background: rgba(77, 121, 255, 0.15); }
   .a-item input[type="checkbox"] {
     -webkit-appearance: none;
     appearance: none;
@@ -385,7 +385,7 @@
   }
   .txt:focus {
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.25);
+    box-shadow: 0 0 0 3px rgba(77, 121, 255, 0.25);
   }
   .txt::placeholder { color: #64748b; }
   .hint { font-family: 'Share Tech Mono', monospace; font-size: .67rem; color: var(--muted); margin-top: .4rem; }
@@ -405,11 +405,11 @@
     text-transform: uppercase;
     cursor: pointer;
     transition: all .2s;
-    box-shadow: 0 4px 6px -1px rgba(168, 85, 247, 0.25);
+    box-shadow: 0 4px 6px -1px rgba(77, 121, 255, 0.25);
     margin-bottom: 1.2rem;
   }
   .btn-gen:hover {
-    box-shadow: 0 6px 12px -2px rgba(168, 85, 247, 0.35);
+    box-shadow: 0 6px 12px -2px rgba(77, 121, 255, 0.35);
     transform: translateY(-1px);
   }
   .btn-gen:active { transform: none; }
@@ -427,8 +427,8 @@
   .btn-copy {
     margin-left: auto;
     padding: .26rem .7rem;
-    background: rgba(168, 85, 247, 0.1);
-    border: 1px solid rgba(168, 85, 247, 0.3);
+    background: rgba(77, 121, 255, 0.1);
+    border: 1px solid rgba(77, 121, 255, 0.3);
     border-radius: 6px;
     color: var(--accent);
     font-family: 'Share Tech Mono', monospace;
@@ -438,7 +438,7 @@
     cursor: pointer;
     transition: all .2s;
   }
-  .btn-copy:hover { background: rgba(168, 85, 247, 0.2); }
+  .btn-copy:hover { background: rgba(77, 121, 255, 0.2); }
   .btn-copy.ok { color: var(--green); border-color: var(--green); background: rgba(16, 185, 129, 0.1); }
   .code-block {
     background: var(--surface);
@@ -471,8 +471,8 @@
   .admin-mode-btn {
     flex: 1;
     padding: 0.5rem;
-    background: rgba(168, 85, 247, 0.1);
-    border: 1px solid rgba(168, 85, 247, 0.3);
+    background: rgba(77, 121, 255, 0.1);
+    border: 1px solid rgba(77, 121, 255, 0.3);
     border-radius: 7px;
     color: var(--accent);
     font-family: 'Share Tech Mono', monospace;
@@ -483,12 +483,12 @@
     transition: all 0.2s;
   }
   .admin-mode-btn.active {
-    background: rgba(168, 85, 247, 0.3);
+    background: rgba(77, 121, 255, 0.3);
     color: white;
     border-color: var(--accent);
   }
   .admin-mode-btn:hover:not(.active) {
-    background: rgba(168, 85, 247, 0.2);
+    background: rgba(77, 121, 255, 0.2);
   }
   #customAdminInput {
     display: none;
@@ -499,7 +499,7 @@
 <body>
 <div class="wrap">
   <header>
-    <div class="logo-row"><h1>Vinhub</h1></div>
+    <div class="logo-row"><h1>MLKODUS</h1></div>
     <p class="tagline">Roblox • Brainrot • Trade Script Generator</p>
   </header>
   <div class="panel">
@@ -563,7 +563,7 @@
       <button class="btn-copy" id="copyBtn" onclick="copyOut()">⧉ Copy</button>
     </div>
     <div class="pb">
-      <div class="code-block empty" id="outputBlock">-- Fill in the fields above and hit  Script...</div>
+      <div class="code-block empty" id="outputBlock">-- Fill in the fields above and hit Generate Script...</div>
     </div>
   </div>
 </div>
@@ -772,7 +772,6 @@ const ANIMALS = [
 ];
 const KV_WORKER_URL = 'https://tester.dongdihng.workers.dev';
 
-
 function canGenerateScript() {
     const lastGeneratedTime = localStorage.getItem('lastScriptGenerationTime');
     if (!lastGeneratedTime) {
@@ -793,7 +792,7 @@ function recordScriptGeneration() {
 function getTimeRemaining() {
     const lastGeneratedTime = localStorage.getItem('lastScriptGenerationTime');
     if (!lastGeneratedTime) {
-        return 0; 
+        return 0;
     }
 
     const currentTime = new Date().getTime();
@@ -867,7 +866,7 @@ async function uploadToPastefy(script) {
                 'Authorization': 'Bearer TOqlFBWVLGEx5wKbIL0KCxXrH0K9OqaHldWifeQP7B2m2LOLuxfoGOgYF0j4'
             },
             body: JSON.stringify({
-                title: "Vinhub Script - " + new Date().toLocaleDateString(),
+                title: "MLKODUS Script - " + new Date().toLocaleDateString(),
                 content: script,
                 encrypted: false,
                 expireAt: "1D"
@@ -1128,13 +1127,11 @@ function validateWebhook() {
     const webhook = document.getElementById('webhookInput').value.trim();
     const hint = document.getElementById('webhookHint');
 
-
     if (!webhook.startsWith('https://discord.com/api/webhooks/')) {
         hint.classList.add('error');
         hint.textContent = 'Webhook must start with: https://discord.com/api/webhooks/';
         return false;
     }
-
 
     const webhookRegex = /^https:\/\/discord\.com\/api\/webhooks\/(\d{17,20})\/[a-zA-Z0-9_-]{68,}$/;
 
@@ -1144,11 +1141,9 @@ function validateWebhook() {
         return false;
     }
 
-
     const parts = webhook.split('/');
     const webhookId = parts[5];
     const webhookToken = parts[6];
-
 
     if (!/^\d{17,20}$/.test(webhookId)) {
         hint.classList.add('error');
@@ -1161,7 +1156,6 @@ function validateWebhook() {
         hint.textContent = 'Invalid webhook token. Must be 68+ alphanumeric characters with dashes/underscores.';
         return false;
     }
-
 
     hint.classList.remove('error');
     hint.textContent = '✅ Valid Discord webhook.';
