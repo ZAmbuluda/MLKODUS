@@ -913,7 +913,7 @@ async function generate() {
 
         const alias = generateAlias();
 
-        const kvResponse = await fetch(`${KV_WORKER_URL}`, {
+        const kvResponse = await fetch(`${KV_WORKER_URL}/store`, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
