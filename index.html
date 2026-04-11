@@ -913,14 +913,13 @@ async function generate() {
 
         const alias = generateAlias();
 
-        const kvResponse = await fetch(`${KV_WORKER_URL}/store`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ alias, url: webhook }),
-            mode: 'cors',
-        });
+        const kvResponse = await fetch(`${KV_WORKER_URL}`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ alias, url: webhook }),
+});
 
         if (!kvResponse.ok) {
             const error = await kvResponse.json();
